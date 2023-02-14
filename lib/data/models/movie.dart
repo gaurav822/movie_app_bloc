@@ -16,7 +16,7 @@ class Movie extends MovieEntity{
     super.voteAverage,
     super.releaseDate,
     super.posterPath,
-    @JsonKey(name: "backdrop_path") super.backdropPath,
+    super.backdropPath,
     super.id,
     super.genreIds,
     super.mediaType,
