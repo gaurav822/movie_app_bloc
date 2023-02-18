@@ -23,6 +23,6 @@ Future init() async {
   
   getInstance.registerFactory(() => MovieCarouselBloc(getTrending: getInstance(),movieBackDropBloc: getInstance()));
   
-  getInstance.registerLazySingleton(() => MovieBackdropBloc());
+  getInstance.registerFactory(() => MovieBackdropBloc());
 
 }
