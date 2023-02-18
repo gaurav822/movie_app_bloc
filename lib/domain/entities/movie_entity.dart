@@ -25,6 +25,6 @@ class MovieEntity {
 
    @override
    String toString() {
-      return 'Movie: {title: ${title}, poster path: ${posterPath}}';
+      return 'Movie: {title: ${title}, poster path: ${backdropPath}}';
    }
  }

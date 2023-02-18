@@ -1,4 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app_bloc/presentation/blocs/movie_backdrop/movie_backdrop_bloc.dart';
+import 'package:movie_app_bloc/presentation/journeys/home/movie_carousel/animated_movie_card_widget.dart';
 import 'package:movie_app_bloc/presentation/journeys/home/movie_carousel/movie_card_widget.dart';
 
 import '../../../../domain/entities/movie_entity.dart';
@@ -42,12 +45,15 @@ class _MoviePageViewState extends State<MoviePageView> {
         controller: _pageController,
           itemBuilder: (context,index){
           final MovieEntity movie = widget.movies[index];
-          return MovieCardWidget(posterPath: movie.posterPath??"", movieId: movie.id??0);
+          return AnimatedMovieCardWidget(
+            index: index,
+              pageController: _pageController,
+              posterPath: movie.posterPath??"", movieId: movie.id??0);
         },
         pageSnapping: true,
         itemCount: widget.movies?.length??0,
         onPageChanged: (index){
-
+          BlocProvider.of<MovieBackdropBloc>(context).add(MovieBackDropChangeEvent(widget.movies[index]));
         },
       ),
     );

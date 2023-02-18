@@ -10,14 +10,13 @@ class MovieCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      elevation: 32,
-      child: GestureDetector(
+    return  GestureDetector(
         onTap: (){},
-        child: ClipRect(
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(16),
           child: CachedNetworkImage(imageUrl: '${ApiConstants.baseImageUrl}$posterPath',fit: BoxFit.cover,),
         ),
-      ),
+
     );
   }
 }

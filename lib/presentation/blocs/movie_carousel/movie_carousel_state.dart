@@ -1,4 +1,6 @@
-part of 'movie_carousel_bloc.dart';
+
+import 'package:flutter/cupertino.dart';
+import '../../../domain/entities/movie_entity.dart';
 
 @immutable
 abstract class MovieCarouselState {}
