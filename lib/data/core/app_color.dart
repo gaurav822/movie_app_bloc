@@ -10,5 +10,7 @@ class AppColor{
   static Color colorBlueBorder = const Color(0xFF00CCCC);
   static Color colorHintText = const Color(0xff838383);
   static Color colorRed = const Color(0xFFE72429);
+  static Color violet = const Color(0xFF8F00FF);
+  static Color royalBlue = const Color(0xFF4169e1);
 
 }

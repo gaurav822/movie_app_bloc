@@ -4,6 +4,8 @@ import '../models/movie.dart';
 
 abstract class MovieRemoteDataSource{
   Future<List<Movie>?> getTrending();
+  Future<List<Movie>?> getPopular();
+  Future<List<Movie>?> getPlayingNow();
 }
 
 class MovieRemoteDataSourceImpl extends MovieRemoteDataSource{
@@ -14,6 +16,20 @@ class MovieRemoteDataSourceImpl extends MovieRemoteDataSource{
   @override
   Future<List<Movie>?> getTrending() async{
     final response = await _client.get('trending/movie/day');
+    final movies = MoviesResultModel.fromJson(response).results;
+    return movies;
+  }
+
+  @override
+  Future<List<Movie>?> getPlayingNow() async{
+    final response = await _client.get('movie/upcoming');
+    final movies = MoviesResultModel.fromJson(response).results;
+    return movies;
+  }
+
+  @override
+  Future<List<Movie>?> getPopular() async{
+    final response = await _client.get('movie/popular');
     final movies = MoviesResultModel.fromJson(response).results;
     return movies;
   }

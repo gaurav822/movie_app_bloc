@@ -20,6 +20,26 @@ class MovieRepositoryImpl extends MovieRepository{
     }
   }
 
+  @override
+  Future<List<MovieEntity>?> getPlayingNow() async{
+    try{
+      final movies = await remoteDataSource.getPlayingNow();
+      return movies;
+    } on Exception{
+      return null;
+    }
+  }
+
+  @override
+  Future<List<MovieEntity>?> getPopular() async{
+    try{
+      final movies = await remoteDataSource.getPopular();
+      return movies;
+    } on Exception{
+      return null;
+    }
+  }
+
 
 }
 

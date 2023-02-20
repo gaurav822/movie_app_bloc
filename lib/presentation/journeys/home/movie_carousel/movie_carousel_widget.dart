@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:movie_app_bloc/presentation/journeys/home/movie_carousel/movie_data_widget.dart';
 import 'package:movie_app_bloc/presentation/widget/movie_app_bar.dart';
+import 'package:movie_app_bloc/presentation/widget/separator.dart';
 
 import '../../../../domain/entities/movie_entity.dart';
 import 'movie_backdrop_widget.dart';
@@ -15,15 +17,18 @@ class MovieCarouselWidget extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        MovieBackDropWidget(),
+        const MovieBackDropWidget(),
         Column(
           children: [
-            MovieAppbar(),
-            SizedBox(height: 40,),
+            const MovieAppbar(),
+            const SizedBox(height: 40,),
             MoviePageView(
               movies:movies,
               initialPage:defaultIndex
-            )
+            ),
+            const MovieDataWidget(),
+            const SizedBox(height: 2,),
+            const Separator(),
           ],
         ),
       ],
