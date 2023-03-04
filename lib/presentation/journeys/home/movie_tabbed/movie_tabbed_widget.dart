@@ -26,6 +26,7 @@ class _MovieTabbedWidgetState extends State<MovieTabbedWidget> with SingleTicker
   Widget build(BuildContext context) {
     return BlocBuilder<MovieTabbedBloc,MovieTabbedState>(
         builder: (context,state){
+          print(state.currentTabIndex);
           return Padding(
               padding: EdgeInsets.only(top: 4),
             child: Column(
@@ -41,7 +42,7 @@ class _MovieTabbedWidgetState extends State<MovieTabbedWidget> with SingleTicker
                           isSelected: MovieTabbedConstants.movieTabs[i].index==state.currentTabIndex)
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 if(state is MovieTabbedChanged)
@@ -54,6 +55,7 @@ class _MovieTabbedWidgetState extends State<MovieTabbedWidget> with SingleTicker
   }
 
   void _onTabTapped(int index){
+    print("curr index $index");
     movieTabbedBloc.add(MovieTabChangedEvent(currentTabIndex: index));
   }
 }

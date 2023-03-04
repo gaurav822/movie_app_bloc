@@ -11,6 +11,7 @@ class AppColor{
   static Color colorHintText = const Color(0xff838383);
   static Color colorRed = const Color(0xFFE72429);
   static Color violet = const Color(0xFF8F00FF);
-  static Color royalBlue = const Color(0xFF4169e1);
+  static Color royalBlue = const Color(0xFF604FEF);
+  static Color vulcan = const Color(0xFF141221);
 
 }

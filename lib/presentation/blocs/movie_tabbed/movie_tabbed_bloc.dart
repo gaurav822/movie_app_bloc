@@ -32,7 +32,7 @@ class MovieTabbedBloc extends Bloc<MovieTabbedEvent, MovieTabbedState> {
             movies = await getTrending(NoParams());
             break;
         }
-        emit(MovieTabbedChanged(currentTabIndex: state.currentTabIndex, movies: movies!));
+        emit(MovieTabbedChanged(currentTabIndex: event.currentTabIndex, movies: movies!));
       }
     });
   }

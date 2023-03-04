@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:movie_app_bloc/common/extensions/string_extension.dart';
 import 'package:movie_app_bloc/data/core/api_constants.dart';
 
 class MovieTabCardWidget extends StatelessWidget {
@@ -25,8 +26,8 @@ class MovieTabCardWidget extends StatelessWidget {
             ),
           )),
           Padding(
-              padding: EdgeInsets.only(top: 4),
-            child: Text(title,maxLines: 1,textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: 18),),
+              padding: const EdgeInsets.only(top: 4),
+            child: Text(title.intelliTrim(),maxLines: 1,textAlign: TextAlign.center,style: TextStyle(color: Colors.white,fontSize: 18),),
           )
         ],
       ),
