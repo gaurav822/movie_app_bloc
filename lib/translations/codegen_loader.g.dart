@@ -20,17 +20,21 @@ class CodegenLoader extends AssetLoader{
   "feedback": "प्रतिक्रिया",
   "about": "हाम्रो बारेमा",
   "popular": "लोकप्रिय",
-  "now": "अब",
-  "trending": "ट्रेन्डिङ"
+  "now": "हालमा प्रदर्शन",
+  "trending": "ट्रेन्डिङ",
+  "english": "अंग्रेजी",
+  "nepali": "नेपाली"
 };
 static const Map<String,dynamic> en_US = {
   "favouriteMovies": "Favourite Movies",
-  "language": "Language",
+  "language": "Languages",
   "feedback": "Feedback",
   "about": "About",
   "popular": "Popular",
   "now": "Now",
-  "trending": "Trending"
+  "trending": "Trending",
+  "english": "English",
+  "nepali": "Nepali"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ne_NP": ne_NP, "en_US": en_US};
 }

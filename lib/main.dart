@@ -1,56 +1,97 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_bloc/data/core/app_color.dart';
+import 'package:movie_app_bloc/presentation/blocs/language_bloc/language_bloc.dart';
 import 'package:movie_app_bloc/presentation/journeys/home/home_screen.dart';
 import 'package:movie_app_bloc/di/get_it.dart' as getIt;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:code_builder/code_builder.dart';
+import 'package:movie_app_bloc/presentation/wiredash_app.dart';
 import 'dart:async';
 
 import 'package:movie_app_bloc/translations/codegen_loader.g.dart';
 
-Future<void> main() async{
-   // ApiClient client = ApiClient(Dio()..options.headers=ApiConstants.header);
-   // MovieRemoteDataSource dataSource = MovieRemoteDataSourceImpl(client);
-   // MovieRepository repository = MovieRepositoryImpl(dataSource);
-   // // repository.getTrending();
-   // GetTrending getTrending = GetTrending(repository);
-   // getTrending(NoParams());
+import 'common/constants/languages.dart';
+
+Future<void> main() async {
+  // ApiClient client = ApiClient(Dio()..options.headers=ApiConstants.header);
+  // MovieRemoteDataSource dataSource = MovieRemoteDataSourceImpl(client);
+  // MovieRepository repository = MovieRepositoryImpl(dataSource);
+  // // repository.getTrending();
+  // GetTrending getTrending = GetTrending(repository);
+  // getTrending(NoParams());
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   unawaited(getIt.init());
   // GetTrending getTrending = getIt.getInstance<GetTrending>();
   // getTrending(NoParams());
   runApp(EasyLocalization(
-      fallbackLocale: Locale('en', 'US'),
-      supportedLocales: [Locale('en', 'US'), Locale('ne', 'NP')],
-  path: 'assets/translations',
-  assetLoader: CodegenLoader(),
-  child: MyApp()));
+      supportedLocales: const [Locale('en', 'US'),Locale('ne', 'NP')],
+      fallbackLocale: const Locale('en', 'US'),
+      startLocale:const Locale('en', 'US') ,
+      path: 'assets/translations',
+      assetLoader: const CodegenLoader(),
+      child: const MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  late LanguageBloc _languageBloc;
+
+  @override
+  void initState() {
+    super.initState();
+    _languageBloc = getIt.getInstance<LanguageBloc>();
+  }
+
+  @override
+  void dispose() {
+    _languageBloc.close();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primaryColor: AppColor.vulcan,
-        colorScheme: ColorScheme.fromSwatch().copyWith(
-          secondary: AppColor.royalBlue, // Your accent color
-        ),
-        textTheme: Theme.of(context).textTheme.apply(
-          bodyColor: Colors.white, //<-- SEE HERE
-          displayColor: Colors.white, //<-- SEE HERE
-        ),
+    return BlocProvider(
+      create: (BuildContext context) => LanguageBloc(),
+      child: BlocBuilder<LanguageBloc, LanguageState>(
+        builder: (context, state) {
+          if(state is LanguageLoadedState){
+            return WireDashApp(
+              child: MaterialApp(
+                title: 'Flutter Demo',
+                theme: ThemeData(
+                  primaryColor: AppColor.vulcan,
+                  colorScheme: ColorScheme.fromSwatch().copyWith(
+                    secondary: AppColor.royalBlue, // Your accent color
+                  ),
+                  textTheme: Theme
+                      .of(context)
+                      .textTheme
+                      .apply(
+                    bodyColor: Colors.white, //<-- SEE HERE
+                    displayColor: Colors.white, //<-- SEE HERE
+                  ),
+                ),
+                supportedLocales: context.supportedLocales,
+                locale: state.locale,
+                localizationsDelegates: context.localizationDelegates,
+                debugShowCheckedModeBanner: false,
+                home: const HomeScreen(),
+              ),
+            );
+          }
+
+          return const SizedBox.shrink();
+        },
       ),
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      localizationsDelegates: context.localizationDelegates,
-      debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
     );
   }
 }

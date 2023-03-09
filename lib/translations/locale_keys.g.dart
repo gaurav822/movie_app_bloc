@@ -8,5 +8,7 @@ abstract class  LocaleKeys {
   static const popular = 'popular';
   static const now = 'now';
   static const trending = 'trending';
+  static const english = 'english';
+  static const nepali = 'nepali';
 
 }
