@@ -25,4 +25,9 @@ extension ThemeTextExtension on TextTheme{
   TextStyle? get violetHeadline6 => headline6?.copyWith(
     color: AppColor.violet.withOpacity(0.6),
   );
+
+  TextStyle? get vulcanBodyText2 => bodyMedium?.copyWith(
+    color: AppColor.vulcan,
+    fontWeight: FontWeight.w600
+  );
 }

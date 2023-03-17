@@ -4,6 +4,7 @@ import 'package:movie_app_bloc/data/models/movie.dart';
 import 'package:movie_app_bloc/domain/entities/cast_entity.dart';
 import 'package:movie_app_bloc/domain/entities/movie_detail_entity.dart';
 import 'package:movie_app_bloc/domain/entities/movie_entity.dart';
+import 'package:movie_app_bloc/domain/entities/video_entity.dart';
 import 'package:movie_app_bloc/domain/respositories/movie_repository.dart';
 
 class MovieRepositoryImpl extends MovieRepository{
@@ -57,6 +58,16 @@ class MovieRepositoryImpl extends MovieRepository{
     try{
       final castCrew = await remoteDataSource.getCastCrew(id);
       return castCrew;
+    } on Exception{
+      return null;
+    }
+  }
+
+  @override
+  Future<List<VideoEntity>?> getVideos(int id) async{
+    try{
+      final videos = await remoteDataSource.getVideos(id);
+      return videos;
     } on Exception{
       return null;
     }

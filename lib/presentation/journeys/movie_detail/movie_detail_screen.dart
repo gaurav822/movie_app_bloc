@@ -5,8 +5,11 @@ import 'package:movie_app_bloc/data/core/app_color.dart';
 import 'package:movie_app_bloc/di/get_it.dart';
 import 'package:movie_app_bloc/presentation/blocs/cast/cast_bloc.dart';
 import 'package:movie_app_bloc/presentation/blocs/movie_detail/movie_detail_bloc.dart';
+import 'package:movie_app_bloc/presentation/blocs/videos/videos_bloc.dart';
 import 'package:movie_app_bloc/presentation/journeys/movie_detail/movie_detail_arguments.dart';
+import 'package:movie_app_bloc/presentation/journeys/movie_detail/videos_widget.dart';
 
+import 'cast_widget.dart';
 import 'big_poster.dart';
 
 class MovieDetailScreen extends StatefulWidget {
@@ -23,12 +26,14 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
 
   late MovieDetailBloc _movieDetailBloc;
   late CastBloc _castBloc;
+  late VideosBloc _videosBloc;
 
   @override
   void initState() {
     super.initState();
     _movieDetailBloc = getInstance<MovieDetailBloc>();
-    _castBloc = getInstance<CastBloc>();
+    _castBloc = _movieDetailBloc.castBloc;
+    _videosBloc = _movieDetailBloc.videosBloc;
     _movieDetailBloc.add(
         MovieDetailLoadEvent(widget.movieDetailArguments.movieId));
 
@@ -39,6 +44,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     super.dispose();
     _movieDetailBloc.close();
     _castBloc.close();
+    _videosBloc.close();
   }
 
   @override
@@ -50,6 +56,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
           providers: [
             BlocProvider.value(value: _movieDetailBloc),
             BlocProvider.value(value: _castBloc),
+            BlocProvider.value(value: _videosBloc),
           ],
           child: BlocBuilder<MovieDetailBloc, MovieDetailState>(
             builder: (context, state) {
@@ -68,7 +75,11 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                       ),
 
                       Padding(padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: Text("Cast"),)
+                      child: Text("Cast",style: TextStyle(fontSize: 20),),),
+
+                      CastWidget(),
+
+                      VideosWidget(videosBloc:_videosBloc)
                     ],
                   ),
                 );
