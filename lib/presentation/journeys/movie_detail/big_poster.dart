@@ -46,7 +46,7 @@ class BigPoster extends StatelessWidget {
           left: 16,
             right: 16,
             top: MediaQuery.of(context).viewPadding.top+10,
-            child: MovieDetailAppBar()
+            child: MovieDetailAppBar(movieDetailEntity:movie)
         )
       ],
     );

@@ -1,4 +1,5 @@
  import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:movie_app_bloc/domain/entities/movie_detail_entity.dart';
 
 class MovieEntity {
 
@@ -27,4 +28,8 @@ class MovieEntity {
    String toString() {
       return 'Movie: {title: ${title}, poster path: ${backdropPath}}';
    }
+
+  factory MovieEntity.fromMovieDetailEntity(MovieDetailEntity movieDetailEntity) {
+      return MovieEntity(id: movieDetailEntity.id,posterPath: movieDetailEntity.posterPath,backdropPath: movieDetailEntity.backDropPath,voteAverage: movieDetailEntity.voteAverage,releaseDate: movieDetailEntity.releaseDate);
+  }
  }

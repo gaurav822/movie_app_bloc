@@ -24,7 +24,10 @@ class CustomSearchMovieDelegate extends SearchDelegate{
   @override
   List<Widget>? buildActions(BuildContext context) {
     return [
-      IconButton(onPressed: () => query='', icon: Icon(Icons.clear,color: query.isNotEmpty?Colors.grey:AppColor.vulcan,))];
+      IconButton(
+          onPressed: () {
+          query='';
+      }, icon: Icon(Icons.clear,color: query.isNotEmpty?Colors.grey:AppColor.vulcan,))];
   }
 
   @override

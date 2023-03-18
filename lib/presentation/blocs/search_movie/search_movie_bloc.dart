@@ -21,6 +21,9 @@ class SearchMovieBloc extends Bloc<SearchMovieEvent, SearchMovieState> {
           final movies = await getSearchMovies(MovieSearchParams(searchTerm: event.searchTerm));
           emit(SearchMovieLoaded(movies!));
         }
+        else{
+          emit(SearchMovieLoaded(const []));
+        }
       }
     });
   }

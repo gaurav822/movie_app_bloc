@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_bloc/data/core/app_color.dart';
 import 'package:movie_app_bloc/di/get_it.dart';
 import 'package:movie_app_bloc/presentation/blocs/cast/cast_bloc.dart';
+import 'package:movie_app_bloc/presentation/blocs/favourite/favourite_bloc.dart';
 import 'package:movie_app_bloc/presentation/blocs/movie_detail/movie_detail_bloc.dart';
 import 'package:movie_app_bloc/presentation/blocs/videos/videos_bloc.dart';
 import 'package:movie_app_bloc/presentation/journeys/movie_detail/movie_detail_arguments.dart';
@@ -27,6 +28,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   late MovieDetailBloc _movieDetailBloc;
   late CastBloc _castBloc;
   late VideosBloc _videosBloc;
+  late FavouriteBloc _favouriteBloc;
 
   @override
   void initState() {
@@ -34,6 +36,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     _movieDetailBloc = getInstance<MovieDetailBloc>();
     _castBloc = _movieDetailBloc.castBloc;
     _videosBloc = _movieDetailBloc.videosBloc;
+    _favouriteBloc = _movieDetailBloc.favouriteBloc;
     _movieDetailBloc.add(
         MovieDetailLoadEvent(widget.movieDetailArguments.movieId));
 
@@ -45,6 +48,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     _movieDetailBloc.close();
     _castBloc.close();
     _videosBloc.close();
+    _favouriteBloc.close();
   }
 
   @override
@@ -57,6 +61,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
             BlocProvider.value(value: _movieDetailBloc),
             BlocProvider.value(value: _castBloc),
             BlocProvider.value(value: _videosBloc),
+            BlocProvider.value(value: _favouriteBloc),
           ],
           child: BlocBuilder<MovieDetailBloc, MovieDetailState>(
             builder: (context, state) {

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
 import 'package:movie_app_bloc/data/core/app_color.dart';
+import 'package:movie_app_bloc/data/tables/movie_table.dart';
 import 'package:movie_app_bloc/presentation/blocs/language_bloc/language_bloc.dart';
 import 'package:movie_app_bloc/presentation/journeys/home/home_screen.dart';
 import 'package:movie_app_bloc/di/get_it.dart' as getIt;
 import 'package:easy_localization/easy_localization.dart';
-import 'package:code_builder/code_builder.dart';
 import 'package:movie_app_bloc/presentation/wiredash_app.dart';
 import 'dart:async';
 
 import 'package:movie_app_bloc/translations/codegen_loader.g.dart';
+import 'package:path_provider/path_provider.dart' as path_provider;
 
 import 'common/constants/languages.dart';
 
@@ -22,6 +24,9 @@ Future<void> main() async {
   // getTrending(NoParams());
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  final appDocumentDir = await path_provider.getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDir.path);
+  Hive.registerAdapter(MovieTableAdapter());
   unawaited(getIt.init());
   // GetTrending getTrending = getIt.getInstance<GetTrending>();
   // getTrending(NoParams());
