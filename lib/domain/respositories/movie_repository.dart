@@ -12,5 +12,6 @@ abstract class MovieRepository{
   Future<MovieDetailEntity?> getMovieDetail(int id);
   Future<List<CastEntity>?> getCastCrew(int id);
   Future<List<VideoEntity>?> getVideos(int id);
+  Future<List<MovieEntity>?> getSearchedMovies(String searchTerm);
 }
 

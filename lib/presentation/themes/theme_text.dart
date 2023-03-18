@@ -22,6 +22,10 @@ extension ThemeTextExtension on TextTheme{
     color: Colors.grey,
   );
 
+  TextStyle? get greyCaption => bodySmall?.copyWith(
+    color: Colors.grey,
+  );
+
   TextStyle? get violetHeadline6 => headline6?.copyWith(
     color: AppColor.violet.withOpacity(0.6),
   );

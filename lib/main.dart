@@ -68,7 +68,9 @@ class _MyAppState extends State<MyApp> {
               child: MaterialApp(
                 title: 'Flutter Demo',
                 theme: ThemeData(
+                  scaffoldBackgroundColor: AppColor.vulcan,
                   primaryColor: AppColor.vulcan,
+                  appBarTheme: const AppBarTheme(elevation: 0,color: Color(0xFF141221)),
                   colorScheme: ColorScheme.fromSwatch().copyWith(
                     secondary: AppColor.royalBlue, // Your accent color
                   ),

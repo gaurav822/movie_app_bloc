@@ -26,7 +26,7 @@ class _WatchVideoScreenState extends State<WatchVideoScreen> {
         initialVideoId: _videos[0].key!,
       flags: YoutubePlayerFlags(
         autoPlay: true,
-        mute: true
+        mute: false
       )
     );
   }

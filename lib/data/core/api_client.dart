@@ -8,9 +8,9 @@ class ApiClient{
 
   ApiClient(this._dio);
 
-  dynamic get(String path)async{
+  dynamic get(String path,{Map<dynamic,dynamic>? params})async{
     final response = await _dio.get(
-      '${ApiConstants.baseUrl}$path?api_key=${ApiConstants.apiKey}',
+      getPath(path,params??{})
     );
 
     if(response.statusCode==200){
@@ -19,5 +19,17 @@ class ApiClient{
     else{
       throw Exception(response.statusMessage);
     }
+  }
+
+  String getPath(String path,Map<dynamic,dynamic> params){
+    var paramString = '';
+    if(params.isNotEmpty){
+      params.forEach((key, value) {
+        paramString += '&$key=$value';
+      });
+    }
+
+    return '${ApiConstants.baseUrl}$path?api_key=${ApiConstants.apiKey}$paramString';
+
   }
 }

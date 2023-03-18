@@ -72,5 +72,15 @@ class MovieRepositoryImpl extends MovieRepository{
       return null;
     }
   }
+
+  @override
+  Future<List<MovieEntity>?> getSearchedMovies(String searchTerm) async{
+    try{
+      final movie = await remoteDataSource.getSearchMovies(searchTerm);
+      return movie;
+    } on Exception{
+      return null;
+    }
+  }
 }
 
