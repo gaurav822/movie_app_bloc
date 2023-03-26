@@ -44,11 +44,11 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
 
   @override
   void dispose() {
-    super.dispose();
     _movieDetailBloc.close();
     _castBloc.close();
     _videosBloc.close();
     _favouriteBloc.close();
+    super.dispose();
   }
 
   @override
@@ -75,14 +75,14 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                       BigPoster(movie:movieDetail),
 
                       Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16,vertical: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 10),
                         child: Text(movieDetail.overview!),
                       ),
 
-                      Padding(padding: EdgeInsets.symmetric(horizontal: 16),
+                      const Padding(padding: EdgeInsets.symmetric(horizontal: 16),
                       child: Text("Cast",style: TextStyle(fontSize: 20),),),
 
-                      CastWidget(),
+                      const CastWidget(),
 
                       VideosWidget(videosBloc:_videosBloc)
                     ],
