@@ -37,7 +37,10 @@ class CustomNavigationDrawer extends StatelessWidget {
             NavigationExpandedListItem(title: LocaleKeys.language.tr(),
                 onPressed: (index){
                   // context.setLocale(Locale(Language.languages[index].code,Language.languages[index].countryCode));
-                  context.read<LanguageBloc>().changeLocale(Locale('en','US'));
+                  // context.read<LanguageBloc>().changeLocale(Locale('ne','NP'));
+
+                  BlocProvider.of<LanguageBloc>(context).changeLocale(Locale('ne','NP'));
+
                   // BlocProvider.of<LanguageBloc>(context).changeLocale(Locale(Language.languages[index].code));
             }, children: Language.languages),
             NavigationListItem(title: LocaleKeys.feedback.tr(),

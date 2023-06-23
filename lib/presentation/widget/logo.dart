@@ -13,7 +13,7 @@ class Logo extends StatelessWidget{
     return Image.asset(
         'assets/pngs/logo.png',
       color: Colors.white,
-      height:51,
+      height:50,
     );
   }
 
