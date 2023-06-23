@@ -37,16 +37,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    movieCarouselBloc.close();
-    movieBackdropBloc.close();
-    movieCarouselBloc.close();
-    searchMovieBloc.close();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: MultiBlocProvider(

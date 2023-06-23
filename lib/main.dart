@@ -31,8 +31,8 @@ Future<void> main() async {
   // GetTrending getTrending = getIt.getInstance<GetTrending>();
   // getTrending(NoParams());
   runApp(EasyLocalization(
-      supportedLocales: const [Locale('ne', 'NP'),Locale('en', 'US')],
-      fallbackLocale: const Locale('ne', 'NP'),
+      supportedLocales: const [Locale('en', 'US'),Locale('ne', 'NP')],
+      fallbackLocale: const Locale('en', 'US'),
       // startLocale:const Locale('en', 'US') ,
       path: 'assets/translations',
       assetLoader: const CodegenLoader(),
@@ -57,15 +57,9 @@ class _MyAppState extends State<MyApp> {
   }
 
   @override
-  void dispose() {
-    _languageBloc.close();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (BuildContext context) => LanguageBloc(),
+      create: (context) => _languageBloc,
       child: BlocBuilder<LanguageBloc, LanguageState>(
         builder: (context, state) {
           if(state is LanguageLoadedState){
@@ -88,10 +82,10 @@ class _MyAppState extends State<MyApp> {
                   ),
                 ),
                 supportedLocales: context.supportedLocales,
-                locale: state.locale,
+                locale: context.locale,
                 localizationsDelegates: context.localizationDelegates,
                 debugShowCheckedModeBanner: false,
-                home: const HomeScreen(),
+                home: const HomeScreen()
               ),
             );
           }

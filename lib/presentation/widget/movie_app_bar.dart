@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movie_app_bloc/presentation/blocs/search_movie/search_movie_bloc.dart';
 import 'package:movie_app_bloc/presentation/widget/logo.dart';
-
 import '../journeys/search_movie/custom_search_movie_delegate.dart';
 
 class MovieAppbar extends StatelessWidget {

@@ -3,8 +3,11 @@ import 'dart:ui';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:movie_app_bloc/common/constants/languages.dart';
 import 'package:movie_app_bloc/domain/entities/language_entity.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 
 part 'language_event.dart';
 part 'language_state.dart';
