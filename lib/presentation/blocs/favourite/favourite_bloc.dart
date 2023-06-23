@@ -25,7 +25,7 @@ class FavouriteBloc extends Bloc<FavouriteEvent, FavouriteState> {
         if(event is ToggleFavouriteMovieEvent){
           if(event.isFavourite){
             await deleleFavouriteMovie(MovieParams(id: event.movieEntity.id!));
-          }
+          } 
           else{
             await saveMovie(event.movieEntity);
           }

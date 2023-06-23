@@ -11,6 +11,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:wiredash/wiredash.dart';
 
 import '../../blocs/language_bloc/language_bloc.dart';
+import '../favourite/favourite_screen.dart';
 
 
 class CustomNavigationDrawer extends StatelessWidget {
@@ -33,7 +34,10 @@ class CustomNavigationDrawer extends StatelessWidget {
               child: Logo(height: 20,),
             ),
             
-            NavigationListItem(title: LocaleKeys.favouriteMovies.tr(), onPressed: (){}),
+            NavigationListItem(title: LocaleKeys.favouriteMovies.tr(),
+                onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>FavouriteScreen()));
+            }),
             NavigationExpandedListItem(title: LocaleKeys.language.tr(),
                 onPressed: (index) async {
                   context.setLocale(Locale(Language.languages[index].code,Language.languages[index].countryCode));
