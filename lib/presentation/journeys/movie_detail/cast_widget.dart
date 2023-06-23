@@ -54,7 +54,7 @@ class CastWidget extends StatelessWidget {
 
                           Padding(
                             padding: const EdgeInsets.only(
-                              left: 9,
+                              left: 8,
                               right: 8,
                               bottom: 2
                             ),
