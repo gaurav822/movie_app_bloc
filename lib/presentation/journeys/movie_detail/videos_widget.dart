@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_bloc/presentation/blocs/videos/videos_bloc.dart';
 import 'package:movie_app_bloc/presentation/journeys/watch_video/watch_video_arguments.dart';
+import 'package:movie_app_bloc/translations/locale_keys.g.dart';
 
 import '../../widget/button.dart';
 import '../watch_video/watch_video_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class VideosWidget extends StatelessWidget {
   final VideosBloc videosBloc;
@@ -22,7 +24,7 @@ class VideosWidget extends StatelessWidget {
                   onPressed: (){
                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>WatchVideoScreen(watchVideoArguments: WatchVideoArguments(videos),)));
                   },
-                  text: 'Watch Trailers',);
+                  text: LocaleKeys.watch_trailers.tr(),);
             }
             else{
               return const SizedBox.shrink();

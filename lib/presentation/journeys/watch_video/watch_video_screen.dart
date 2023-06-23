@@ -6,6 +6,9 @@ import 'package:movie_app_bloc/domain/entities/video_entity.dart';
 import 'package:movie_app_bloc/presentation/journeys/watch_video/watch_video_arguments.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+import '../../../translations/locale_keys.g.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 class WatchVideoScreen extends StatefulWidget {
   final WatchVideoArguments watchVideoArguments;
 
@@ -43,7 +46,7 @@ class _WatchVideoScreenState extends State<WatchVideoScreen> {
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        title: Text("Watch Trailers"),
+        title: Text(LocaleKeys.trailers.tr()),
       ),
       body: YoutubePlayerBuilder(
         builder: (context,player){

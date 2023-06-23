@@ -10,5 +10,9 @@ abstract class  LocaleKeys {
   static const trending = 'trending';
   static const english = 'english';
   static const nepali = 'nepali';
+  static const cast = 'cast';
+  static const trailers = 'trailers';
+  static const watch_trailers = 'watch_trailers';
+  static const no_movies_found = 'no_movies_found';
 
 }

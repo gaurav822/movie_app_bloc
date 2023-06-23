@@ -12,6 +12,7 @@ import 'dart:async';
 
 import 'package:movie_app_bloc/translations/codegen_loader.g.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
+import 'package:visibility_detector/visibility_detector.dart';
 
 import 'common/constants/languages.dart';
 

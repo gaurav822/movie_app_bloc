@@ -3,9 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_bloc/presentation/blocs/search_movie/search_movie_bloc.dart';
 import 'package:movie_app_bloc/presentation/journeys/search_movie/search_movie_card.dart';
 import 'package:movie_app_bloc/presentation/themes/theme_text.dart';
+import 'package:movie_app_bloc/translations/locale_keys.g.dart';
 
 import '../../../data/core/app_color.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 class CustomSearchMovieDelegate extends SearchDelegate{
   final SearchMovieBloc searchMovieBloc;
   CustomSearchMovieDelegate(this.searchMovieBloc);
@@ -61,10 +62,10 @@ class CustomSearchMovieDelegate extends SearchDelegate{
           else if(state is SearchMovieLoaded){
             final movies = state.movies;
             if(movies.isEmpty){
-              return const Center(
+              return Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 64),
-                  child: Text("No Movies Found"),
+                  child: Text(LocaleKeys.no_movies_found.tr()),
                 ),
               );
             }

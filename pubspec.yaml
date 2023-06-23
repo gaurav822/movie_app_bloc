@@ -66,10 +66,11 @@ dev_dependencies:
   freezed: ^2.3.0
   equatable: ^2.0.5
   google_fonts: ^4.0.3
-  easy_localization: ^3.0.1
+  easy_localization: ^3.0.2
   hive_generator: ^2.0.0
   flutter_launcher_icons: ^0.13.1
   rename: ^2.1.1
+  visibility_detector: ^0.4.0+2
 
 flutter_launcher_icons:
   android: true

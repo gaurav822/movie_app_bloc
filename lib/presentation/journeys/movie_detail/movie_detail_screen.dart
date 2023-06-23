@@ -10,8 +10,10 @@ import 'package:movie_app_bloc/presentation/blocs/videos/videos_bloc.dart';
 import 'package:movie_app_bloc/presentation/journeys/movie_detail/movie_detail_arguments.dart';
 import 'package:movie_app_bloc/presentation/journeys/movie_detail/videos_widget.dart';
 
+import '../../../translations/locale_keys.g.dart';
 import 'cast_widget.dart';
 import 'big_poster.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class MovieDetailScreen extends StatefulWidget {
   final MovieDetailArguments movieDetailArguments;
@@ -70,8 +72,8 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                         child: Text(movieDetail.overview!),
                       ),
 
-                      const Padding(padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: Text("Cast",style: TextStyle(fontSize: 20),),),
+                       Padding(padding: EdgeInsets.symmetric(horizontal: 16),
+                      child: Text(LocaleKeys.cast.tr(),style: TextStyle(fontSize: 20),),),
 
                       const CastWidget(),
 

@@ -7,5 +7,9 @@
   "now" : "Now",
   "trending" : "Trending",
   "english" : "English",
-  "nepali" : "Nepali"
+  "nepali" : "Nepali",
+  "cast" : "Cast",
+  "trailers" : "Trailers",
+  "watch_trailers" : "Watch Trailers",
+  "no_movies_found" : "No Movies Found"
 }

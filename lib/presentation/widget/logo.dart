@@ -14,17 +14,11 @@ class Logo extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: (){
-        BlocProvider.of<LanguageBloc>(context).changeLocale(Locale('ne','NP'));
-        // context.read<LanguageBloc>().changeLocale(Locale('en','US'));
-      },
-      child: Image.asset(
+    return Image.asset(
           'assets/pngs/logo.png',
         color: Colors.white,
         height:50,
-      ),
-    );
+      );
   }
 
 }
