@@ -26,7 +26,7 @@ class NavigationExpandedListItem extends StatelessWidget {
         children: [
           for(int i=0;i<children.length;i++)
             NavigationSubListItem(
-                title: children[i].value,
+                title: tr('${children[i].value}'),
                 onPressed: ()=>onPressed(i))
         ],
 
