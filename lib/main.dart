@@ -65,7 +65,7 @@ class _MyAppState extends State<MyApp> {
           if(state is LanguageLoadedState){
             return WireDashApp(
               child: MaterialApp(
-                title: 'Flutter Demo',
+                title: 'Movie App',
                 theme: ThemeData(
                   scaffoldBackgroundColor: AppColor.vulcan,
                   primaryColor: AppColor.vulcan,
