@@ -36,6 +36,19 @@ class CastWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Expanded(child: CachedNetworkImage(
+                            errorWidget: (context,url,error) => Container(
+                              height: 100,
+                              width: 160,
+                              color: Colors.white,
+                              child: Center(child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text("Image not found",style: TextStyle(color: Colors.black,fontSize: 12,fontWeight: FontWeight.w300),),
+                                  SizedBox(height: 10,),
+                                  Icon((Icons.block),color: Colors.red,)
+                                ],
+                              ),),
+                            ),
                             height: 100,
                             width: 160,
                             imageUrl: '${ApiConstants.baseImageUrl}${castEntity.profilePath}',fit: BoxFit.fitWidth,)

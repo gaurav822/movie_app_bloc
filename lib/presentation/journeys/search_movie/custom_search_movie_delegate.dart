@@ -54,17 +54,17 @@ class CustomSearchMovieDelegate extends SearchDelegate{
         bloc: searchMovieBloc,
         builder: (context,state){
           if(state is SearchMovieError){
-            return SizedBox();
+            return const SizedBox();
           }
           else if(state is SearchMovieLoading){
-            return Center(child: CircularProgressIndicator(color: AppColor.vulcan,),);
+            return const Center(child: CircularProgressIndicator(),);
           }
           else if(state is SearchMovieLoaded){
             final movies = state.movies;
             if(movies.isEmpty){
               return Center(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 64),
+                  padding: const EdgeInsets.symmetric(horizontal: 64),
                   child: Text(LocaleKeys.no_movies_found.tr()),
                 ),
               );
@@ -78,7 +78,7 @@ class CustomSearchMovieDelegate extends SearchDelegate{
             }
           }
           else {
-            return SizedBox.shrink();
+            return const SizedBox.shrink();
           }
 
         });

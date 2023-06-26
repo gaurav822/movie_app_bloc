@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app_bloc/domain/entities/movie_detail_entity.dart';
 import 'package:movie_app_bloc/domain/entities/movie_entity.dart';
 import 'package:movie_app_bloc/presentation/blocs/favourite/favourite_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class MovieDetailAppBar extends StatelessWidget {
   final MovieDetailEntity movieDetailEntity;
@@ -24,6 +25,28 @@ class MovieDetailAppBar extends StatelessWidget {
             if(state is IsFavouriteMovie){
               return GestureDetector(
                 onTap: (){
+                  if(state.isMovieFavourite){
+                    Fluttertoast.showToast(
+                        msg: "Movie removed from favourite list",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.red,
+                        textColor: Colors.white,
+                        fontSize: 16.0
+                    );
+                  }
+                  else{
+                    Fluttertoast.showToast(
+                        msg: "Movie added to favourite list",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.greenAccent,
+                        textColor: Colors.black,
+                        fontSize: 16.0
+                    );
+                  }
                    BlocProvider.of<FavouriteBloc>(context).add(
                        ToggleFavouriteMovieEvent(
                            MovieEntity.fromMovieDetailEntity(movieDetailEntity),

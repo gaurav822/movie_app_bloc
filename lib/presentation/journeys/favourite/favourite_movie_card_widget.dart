@@ -6,7 +6,7 @@ import 'package:movie_app_bloc/domain/entities/movie_entity.dart';
 import 'package:movie_app_bloc/presentation/blocs/favourite/favourite_bloc.dart';
 import 'package:movie_app_bloc/presentation/journeys/movie_detail/movie_detail_arguments.dart';
 import 'package:movie_app_bloc/presentation/journeys/movie_detail/movie_detail_screen.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 import '../../../data/core/api_constants.dart';
 
 class FavouriteMovieCardWidget extends StatelessWidget {
@@ -29,8 +29,19 @@ class FavouriteMovieCardWidget extends StatelessWidget {
 
             Align(alignment: Alignment.topRight,
             child: GestureDetector(
-              onTap: () => BlocProvider.of<FavouriteBloc>(context).add(DeleteFavouriteMovieEvent(movie.id!)),
-              child: Padding(
+              onTap: () {
+                BlocProvider.of<FavouriteBloc>(context).add(DeleteFavouriteMovieEvent(movie.id!));
+                Fluttertoast.showToast(
+                    msg: "Movie removed from favourite List",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    fontSize: 16.0
+                );
+              },
+              child: const Padding(
                 padding: EdgeInsets.all(12),
                 child: Icon(Icons.delete,size: 20,color: Colors.white,),
               ),
