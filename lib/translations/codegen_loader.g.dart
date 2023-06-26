@@ -29,7 +29,9 @@ class CodegenLoader extends AssetLoader{
   "watch_trailers": "ट्रेलरहरू हेर्नुहोस्",
   "no_movies_found": "कुनै चलचित्र फेला परेन",
   "no_favourite_movies": "कुनै पनि मनपर्ने चलचित्र फेला परेन",
-  "favourite_movies": "मनपर्ने चलचित्रहरू"
+  "favourite_movies": "मनपर्ने चलचित्रहरू",
+  "aboutDescription": "यो उत्पादन TMDb API प्रयोग गर्दछ तर TMDb द्वारा समर्थन वा प्रमाणित छैन। यो एप शिक्षा उद्देश्यको लागि विकसित गरिएको हो।",
+  "okay": "ठिक छ"
 };
 static const Map<String,dynamic> en_US = {
   "favouriteMovies": "Favourite Movies",
@@ -46,7 +48,9 @@ static const Map<String,dynamic> en_US = {
   "watch_trailers": "Watch Trailers",
   "no_movies_found": "No Movies Found",
   "no_favourite_movies": "No Favourite Movies Found",
-  "favourite_movies": "Favourite Movies"
+  "favourite_movies": "Favourite Movies",
+  "aboutDescription": "This product uses the TMDb API but is not endorsed or certified by TMDb. This app is developed for education purpose.",
+  "okay": "Okay"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ne_NP": ne_NP, "en_US": en_US};
 }

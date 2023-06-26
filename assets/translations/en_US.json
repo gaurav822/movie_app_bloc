@@ -13,5 +13,7 @@
   "watch_trailers" : "Watch Trailers",
   "no_movies_found" : "No Movies Found",
   "no_favourite_movies" : "No Favourite Movies Found",
-  "favourite_movies" : "Favourite Movies"
+  "favourite_movies" : "Favourite Movies",
+  "aboutDescription" : "This product uses the TMDb API but is not endorsed or certified by TMDb. This app is developed for education purpose.",
+  "okay" : "Okay"
 }

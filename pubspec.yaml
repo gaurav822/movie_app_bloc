@@ -71,6 +71,8 @@ dev_dependencies:
   flutter_launcher_icons: ^0.13.1
   rename: ^2.1.1
   fluttertoast: ^8.2.2
+  font_awesome_flutter: ^10.4.0
+  url_launcher: ^6.1.11
 
 flutter_launcher_icons:
   android: true

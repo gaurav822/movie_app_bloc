@@ -11,6 +11,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:wiredash/wiredash.dart';
 
 import '../../blocs/language_bloc/language_bloc.dart';
+import '../../widget/app_dialog.dart';
 import '../favourite/favourite_screen.dart';
 
 
@@ -49,11 +50,31 @@ class CustomNavigationDrawer extends StatelessWidget {
               Navigator.of(context).pop();
               Wiredash.of(context).show();
             }),
-            NavigationListItem(title: LocaleKeys.about.tr(), onPressed: (){}),
+            NavigationListItem(
+                title: LocaleKeys.about.tr(),
+                onPressed: (){
+                  Navigator.of(context).pop();
+                  _showDialog(context);
+            }),
           ],
         ),
       ),
 
+    );
+  }
+
+  void _showDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AppDialog(
+        title: LocaleKeys.about.tr(),
+        description: LocaleKeys.aboutDescription.tr(),
+        buttonText: LocaleKeys.okay.tr(),
+        image: Image.asset(
+          'assets/pngs/tmdb_logo.png',
+          height: 32,
+        ),
+      ),
     );
   }
 }

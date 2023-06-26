@@ -16,5 +16,7 @@ abstract class  LocaleKeys {
   static const no_movies_found = 'no_movies_found';
   static const no_favourite_movies = 'no_favourite_movies';
   static const favourite_movies = 'favourite_movies';
+  static const aboutDescription = 'aboutDescription';
+  static const okay = 'okay';
 
 }
