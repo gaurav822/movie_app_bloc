@@ -14,5 +14,7 @@ abstract class  LocaleKeys {
   static const trailers = 'trailers';
   static const watch_trailers = 'watch_trailers';
   static const no_movies_found = 'no_movies_found';
+  static const no_favourite_movies = 'no_favourite_movies';
+  static const favourite_movies = 'favourite_movies';
 
 }

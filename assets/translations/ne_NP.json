@@ -11,5 +11,7 @@
   "cast" : "अभिनेताहरू",
   "trailers" : "ट्रेलरहरू",
   "watch_trailers": "ट्रेलरहरू हेर्नुहोस्",
-  "no_movies_found" : "कुनै चलचित्र फेला परेन"
+  "no_movies_found" : "कुनै चलचित्र फेला परेन",
+  "no_favourite_movies" : "कुनै पनि मनपर्ने चलचित्र फेला परेन",
+  "favourite_movies" : "मनपर्ने चलचित्रहरू"
 }

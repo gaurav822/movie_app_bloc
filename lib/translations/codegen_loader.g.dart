@@ -27,7 +27,9 @@ class CodegenLoader extends AssetLoader{
   "cast": "अभिनेताहरू",
   "trailers": "ट्रेलरहरू",
   "watch_trailers": "ट्रेलरहरू हेर्नुहोस्",
-  "no_movies_found": "कुनै चलचित्र फेला परेन"
+  "no_movies_found": "कुनै चलचित्र फेला परेन",
+  "no_favourite_movies": "कुनै पनि मनपर्ने चलचित्र फेला परेन",
+  "favourite_movies": "मनपर्ने चलचित्रहरू"
 };
 static const Map<String,dynamic> en_US = {
   "favouriteMovies": "Favourite Movies",
@@ -42,7 +44,9 @@ static const Map<String,dynamic> en_US = {
   "cast": "Cast",
   "trailers": "Trailers",
   "watch_trailers": "Watch Trailers",
-  "no_movies_found": "No Movies Found"
+  "no_movies_found": "No Movies Found",
+  "no_favourite_movies": "No Favourite Movies Found",
+  "favourite_movies": "Favourite Movies"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ne_NP": ne_NP, "en_US": en_US};
 }
